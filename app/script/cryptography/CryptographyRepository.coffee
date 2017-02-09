@@ -44,7 +44,7 @@ class z.cryptography.CryptographyRepository
     .then =>
       @logger.info "Initializing Cryptobox with database '#{db.name}'..."
       cryptobox_store = new cryptobox.store.IndexedDB db
-      @cryptobox = new cryptobox.Cryptobox cryptobox_store, 10
+      @cryptobox = new cryptobox.Cryptobox cryptobox_store
 
       @cryptobox.on cryptobox.Cryptobox.TOPIC.NEW_PREKEYS, (data) =>
         serialized_prekeys = data.map (pre_key) =>
